@@ -2,55 +2,364 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/main.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-    <script src="//maxcdn. bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js">
-    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio</title>
-</head>
 
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous" />
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <link rel="stylesheet" href="/main.css">
+
+</head>
 
 <body>
     <div class="frame">
-        <div class="main_frame">
-            <div class="left_frame">
-                <div class="left_1">
-                    <div class="left_1-1">
-                        <img src="images/Profile.jpg" width: 156px; height: 142px;>
+        <div class="main-frame">
+            <div class="left-frame">
+                <!-- PROFILE -->
+                <div class="profile">
+                    <img src="/author/images/profile.png" alt="">
+                    <h4>
+                        <%=user.name %>
+                    </h4>
+                    <p>
+                        <%=user.profession %>
+                    </p>
+
+                    <div class="social-icon">
+                        <a href="" class="icon">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="" class="icon">
+                            <i class="fa-brands fa-square-instagram"></i>
+                        </a>
+                        <a href="" class="icon">
+                            <i class="fa-brands fa-twitter"></i>
+                        </a>
+                        <a href="" class="icon">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                        <a href="" class="icon">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                        <a href="" class="icon">
+                            <i class="fa-solid fa-basketball"></i>
+                        </a>
                     </div>
-                    <div class="left_1-2">
-                        <%=user.name%>
+                </div>
+                <!-- PROFILE -->
+                <hr>
+                <!-- ABOUT -->
+                <div class="about">
+                    <div class="item">
+                        <span class="title">Age:</span>
+                        <span>
+                            <%= user.age %>
+                        </span>
                     </div>
-                    <div class="left_1-3">
-                        <%=user.profession%>
+
+                    <div class="item">
+                        <span class="title">Residence:</span>
+                        <span>
+                            <%= user.residence %>
+                        </span>
                     </div>
-                    <div class="left-icons">
-                        <a class="link_href" href="">
-                            <div>
-                                <img src="icon/socialIcon.png" />
-                            </div>
+
+                    <div class="item">
+                        <span class="title">Freelance:</span>
+                        <span class="text-success">Avalable</span>
+                    </div>
+
+                    <div class="item">
+                        <span class="title">Address:</span>
+                        <span>
+                            <%= user.adress %>
+                        </span>
+                    </div>
+                </div>
+                <!-- ABOUT -->
+                <hr>
+
+                <!-- LANGUAGES -->
+                <div class="languages">
+                    <h4>Languages</h4>
+                    <div class="item">
+                        <div class="title">
+                            <span>
+                                <%= user.languages[0] %>
+                            </span>
+                            <span class="text-right">100%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 100%"></div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="title">
+                            <span>
+                                <%= user.languages[1] %>
+                            </span>
+                            <span class="text-right">80%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 80%"></div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="title">
+                            <span>
+                                <%= user.languages[2] %>
+                            </span>
+                            <span class="text-right">60%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 60%"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- LANGUAGES -->
+                <hr>
+
+                <!-- SKILLS -->
+                <div class="languages">
+                    <h4>Skills</h4>
+                    <div class="item">
+                        <div class="title">
+                            <span>
+                                <%= user.skills[0] %>
+                            </span>
+                            <span class="text-right">90%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 90%"></div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="title">
+                            <span>
+                                <%= user.skills[1] %>
+                            </span>
+                            <span class="text-right">85%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 85%"></div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="title">
+                            <span>
+                                <%= user.skills[2] %>
+                            </span>
+                            <span class="text-right">80%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 80%"></div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="title">
+                            <span>
+                                <%= user.skills[3] %>
+                            </span>
+                            <span class="text-right">75%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 75%"></div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="title">
+                            <span>
+                                <%= user.skills[4] %>
+                            </span>
+                            <span class="text-right">85%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- SKILLS -->
+                <hr>
+
+                <!-- EXTRA SKILLS -->
+                <div class="extra-skills">
+                    <h4>Extra skills</h4>
+                    <div class="item">
+                        <span class="icon"><i class="fa-regular fa-clone"></i></span>
+                        <span class="title">
+                            <%= user.extra_skills[0] %>
+                        </span>
+                    </div>
+
+                    <div class="item">
+                        <span class="icon"><i class="fa-regular fa-clone"></i></span>
+                        <span class="title">
+                            <%= user.extra_skills[1] %>
+                        </span>
+                    </div>
+
+                    <div class="item">
+                        <span class="icon"><i class="fa-regular fa-clone"></i></span>
+                        <span class="title">
+                            <%= user.extra_skills[2] %>
+                        </span>
+                    </div>
+
+                    <div class="item">
+                        <span class="icon"><i class="fa-regular fa-clone"></i></span>
+                        <span class="title">
+                            <%= user.extra_skills[3] %>
+                        </span>
+                    </div>
+                </div>
+                <!-- EXTRA SKILLS -->
+
+                <hr>
+            </div>
+            <div class="mid-frame">
+                <div class="main-menu">
+                    <div>
+                        <h1>
+                            <%= user.work_place %>
+                        </h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus at quod cupiditate ab qui
+                            animi, iure, minima molestias similique enim tempora quibusdam ullam, corrupti dolore.</p>
+
+                        <a href="" role="button" class="button">
+                            Hire me <i class="fa-solid fa-arrow-right"></i>
                         </a>
                     </div>
 
+                    <div class="img">
+                        <!-- <img src="/author/images/your-image.png" alt=""> -->
+                    </div>
                 </div>
-                <div class=" marginer "></div>
-                <div class="left_2 "></div>
-                <div class="marginer "></div>
-                <div class="left_3 "></div>
-                <div class="marginer "></div>
-                <div class="left_4 "></div>
-                <div class="marginer "></div>
-                <div class="left_5 "></div>
-                <div class="marginer "></div>
+
+                <div class="services" id="services">
+                    <h1 class="title">My services</h1>
+                    <p class="desc">
+                        <%= user.service_desc %>
+                    </p>
+
+                    <div class="card-box">
+
+                        <div class="my-card">
+                            <img src="/author/icons/Icons_coding.svg" alt="">
+                            <h5>Web Development</h5>
+                            <p>Blog, E-commerce</p>
+                        </div>
+
+                        <div class="my-card">
+                            <img src="/author/icons/Icons_game-development.svg" alt="">
+                            <h5>UI/UX design</h5>
+                            <p>Mobile app, website design</p>
+                        </div>
+
+                        <div class="my-card">
+                            <img src="/author/icons/Icons_Microphone.svg" alt="">
+                            <h5>Sound Sesign</h5>
+                            <p>Voice Over, Beat Making</p>
+                        </div>
+
+                        <div class="my-card">
+                            <img src="/author/icons/Icons_illustration.svg" alt="">
+                            <h5>Game Design</h5>
+                            <p>Blog, E-commerce</p>
+                        </div>
+
+                        <div class="my-card">
+                            <img src="/author/icons/Icons_Photographer.svg" alt="">
+                            <h5>Photography</h5>
+                            <p>Portrait, Product Photography</p>
+                        </div>
+
+                        <div class="my-card">
+                            <h5>Advertising</h5>
+                            <p style="width: 260px; text-align: center;">Lorem ipsum dolor sit amet consectetur,
+                                adipisicing elit. Libero temporibus ipsa eos, maiores iste incidunt!</p>
+                            <a href="">
+                                ORDER NOW <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="midd_frame "></div>
-            <div class="right_frame "></div>
+            <div class="right-frame">
+                <div class="contrast">
+                    <a href="#" role="button">
+                        <img src="/author/icons/icons_contrast.svg" alt="">
+                    </a>
+
+                    <div class="menu">
+                        <div class="item">
+                            <div class="tooltip">Home</div>
+                            <div class="icon active">
+                                <i class="fa-solid fa-house"></i>
+                            </div>
+                        </div>
+
+                        <a href="#services" class="item">
+                            <div class="tooltip">Service</div>
+                            <div class="icon">
+                                <i class="fa-solid fa-code"></i>
+                            </div>
+                        </a>
+
+                        <div class="item">
+                            <div class="tooltip">Education</div>
+                            <div class="icon">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <div class="tooltip">Portfolio</div>
+                            <div class="icon">
+                                <i class="fa-solid fa-briefcase"></i>
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <div class="tooltip">Blog</div>
+                            <div class="icon">
+                                <i class="fa-solid fa-square"></i>
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <div class="tooltip">Contact</div>
+                            <div class="icon">
+                                <i class="fa-solid fa-message"></i>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
-
-
-
+    </div>
 </body>
 
 </html>
