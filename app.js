@@ -39,15 +39,40 @@ app.set("view engine", "ejs");
 // });
 
 app.post("/create-item", (req, res) => {
-    //
+    //console.log(req.body);
+    console.log('user entered /');
+    const new_reja = req.body.reja
+    db.collection("plans").insertOne({ reja: new_reja }, (err, data) => {
+        if (err) {
+            console.log(err);
+            res.end('smth went wrong');
+        } else {
+            res.end('successfully added');
+        }
+    });
 });
 
-app.get("/author", (req, res) => {
-    res.render('author.ejs', { user: user });
-});
+// app.get("/author", (req, res) => {
+//     res.render('author.ejs', { user: user });
+// });
+
+// app.get("/", function(req, res) {
+//     res.render('reja.ejs')
+// })
 
 app.get("/", function(req, res) {
-    res.render('reja.ejs')
-})
+    console.log('user entered /');
+    db.collection("plans").find().toArray((err, data) => {
+        if (err) {
+            console.log(err);
+            res.end("something went wrong");
+        } else {
+            //console.log(data);
+            res.render("reja", { items: data });
+        }
+    });
+});
+
+module.exports = app;
 
 //Client-side rendering => React
