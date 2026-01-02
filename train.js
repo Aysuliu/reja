@@ -11,19 +11,88 @@
 // console.log(countLetter('e', 'engineer'));
 // console.log(countLetter('a', 'abrakadabra'));
 
-// //MIT Problem #B task
+// // //MIT Problem #B task
 
-function countDigits(a) {
-    let cnt = 0;
-    for (let i = 0; i < a.length; i++) {
-        if (a[i] >= "0" && a[i] <= "9") {
-            cnt++;
+// function countDigits(a) {
+//     let cnt = 0;
+//     for (let i = 0; i < a.length; i++) {
+//         if (a[i] >= "0" && a[i] <= "9") {
+//             cnt++;
+//         }
+//     }
+//     return cnt;
+// }
+// console.log(countDigits("ad2a54y79wet0sfgb9"));
+// console.log(countDigits("fbdh8d4hfj9sn2m5md00smn81"));
+
+
+//MIT Problem #C task
+
+const moment = require('moment');
+
+class Shop {
+
+    constructor(non, lagmon, cola) {
+        this.non = non;
+        this.lagmon = lagmon;
+        this.cola = cola;
+    };
+
+
+    hozirgiVaqt() {
+        return moment().format('HH:mm');
+    };
+
+
+    qoldiq() {
+        const vaqt = this.hozirgiVaqt();
+        const xabar = `Hozir ${vaqt}da ${this.non}ta non, ${this.lagmon}ta lag'mon va ${this.cola}ta cola mavjud!`;
+
+        console.log(xabar);
+        return xabar;
+    };
+
+
+    sotish(mahsulot, son) {
+        const vaqt = this.hozirgiVaqt();
+
+        if (this[mahsulot] !== undefined) {
+            if (this[mahsulot] >= son) {
+                this[mahsulot] -= son;
+                console.log(`${vaqt}da ${son}ta ${mahsulot} sotildi`);
+            } else {
+                console.log(`${vaqt}da Yetarli ${mahsulot} yo'q! Faqat ${this[mahsulot]}ta bor`);
+            }
+        } else {
+            console.log(`${vaqt}da Bunday mahsulot mavjud emas!`);
+        }
+    };
+
+
+    qabul(mahsulot, son) {
+        const vaqt = this.hozirgiVaqt();
+
+        if (this[mahsulot] !== undefined) {
+            this[mahsulot] += son;
+            console.log(`${vaqt}da ${son}ta ${mahsulot} qabul qilindi`);
+        } else {
+            console.log(`${vaqt}da Bunday mahsulot mavjud emas!`);
         }
     }
-    return cnt;
-}
-console.log(countDigits("ad2a54y79wet0sfgb9"));
-console.log(countDigits("fbdh8d4hfj9sn2m5md00smn81"));
+};
+
+const shop = new Shop(4, 5, 2);
+shop.qoldiq();
+shop.sotish("non", 3);
+shop.qabul("cola", 4);
+shop.qoldiq();
+
+
+
+
+
+
+
 
 
 //EVENT LOOP & CALLBACK

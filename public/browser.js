@@ -17,7 +17,7 @@ function itemTemplate(data) {
 
 
 
-let createField = document.getElementByI("create-field");
+let createField = document.getElementById("create-field");
 
 document.getElementById("create-form").addEventListener("submit", function(e) {
     e.preventDefault();
@@ -25,12 +25,37 @@ document.getElementById("create-form").addEventListener("submit", function(e) {
     axios
         .post("/create-item", { reja: createField.value })
         .then((response) => {
-            document.getElementById("item-list").insertAdjacentHTML("beforeend", itemTemplate(response.data));
+            document
+                .getElementById("item-list")
+                .insertAdjacentHTML("beforeend", itemTemplate(response.data));
             createField.value = "";
             createField.focus();
         })
         .catch((err) => {
-            console.log("Iltimos qaytadan harakat qilib koring!")
+            console.log("Iltimos qaytadan harakat qilib");
         });
+
+});
+
+document.addEventListener("click", function(e) {
+    // delete oper 
+    console.log(e.target);
+    if (e.target.classList.contains("delete-me")) {
+        if (confirm("Aniq ochirmoqchimisiz?")) {
+            axios
+                .post("/delete-item", { id: e.target.getAttribute("data-id") })
+                .then((response) => {
+                    console.log(response.data);
+                    e.target.parentElement.parentElement.remove();
+                })
+                .catch((err) => {
+                    console.log("Xatolik yuz berdi");
+                });
+        }
+    }
+    //edit oper 
+    if (e.target.classList.contains("edit-me")) {
+        alert("siz edit tugmasini bostingiz");
+    }
 
 });
