@@ -20,9 +20,9 @@ fs.readFile("database/user.json", "utf8", (err, data) => {
 
 
 //1 Kirish code
-app.use(express.static("public"));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.static("public")); //MiddleWare 
+app.use(express.json()); // Rest API
+app.use(express.urlencoded({ extended: true })); //traditional API
 
 //2 Session code
 //3 BSSR => Views backend server site rendering
@@ -43,12 +43,8 @@ app.post("/create-item", (req, res) => {
     console.log('user entered /');
     const new_reja = req.body.reja
     db.collection("plans").insertOne({ reja: new_reja }, (err, data) => {
-        if (err) {
-            console.log(err);
-            res.end('smth went wrong');
-        } else {
-            res.end('successfully added');
-        }
+        console.log(data.ops);
+        res.json(data.ops[0]);
     });
 });
 
