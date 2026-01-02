@@ -1,6 +1,6 @@
 console.log("fronEnd Js ishga tushdi");
 
-function itemTemplate(data) {
+function itemTemplate(item) {
     return ` <li class="list-group-item list-group-item-info d-flex align-items-center justify-content-between">
                     <span class="item-text">${item.reja}</span>
                         <div>
@@ -25,6 +25,7 @@ document.getElementById("create-form").addEventListener("submit", function(e) {
     axios
         .post("/create-item", { reja: createField.value })
         .then((response) => {
+            console.log(response.data);
             document
                 .getElementById("item-list")
                 .insertAdjacentHTML("beforeend", itemTemplate(response.data));
@@ -39,13 +40,12 @@ document.getElementById("create-form").addEventListener("submit", function(e) {
 
 document.addEventListener("click", function(e) {
     // delete oper 
-    console.log(e.target);
     if (e.target.classList.contains("delete-me")) {
         if (confirm("Aniq ochirmoqchimisiz?")) {
             axios
-                .post("/delete-item", { id: e.target.getAttribute("data-id") })
+                .post("/delete-item", { _id: e.target.getAttribute("data-id") })
                 .then((response) => {
-                    console.log(response.data);
+                    console.log(response);
                     e.target.parentElement.parentElement.remove();
                 })
                 .catch((err) => {
