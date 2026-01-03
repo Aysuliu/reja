@@ -32,13 +32,6 @@ app.set("view engine", "ejs");
 //single page appplication method
 
 //4 Routing code
-// app.get("/hello", function(req, res) {
-//     res.end(`<h1 style="background-color: red"> Hello WOrld </h1>`); // html faylni render qilish
-// });
-// app.get("/gift", function(req, res) {
-//     res.end(`<h1> Siz sovg'alar bolimidasiz </h1>`); // html faylni render qilish
-// });
-
 app.post("/create-item", (req, res) => {
     //console.log(req.body);
     console.log('user entered /create-item');
@@ -58,6 +51,28 @@ app.post("/delete-item", (req, res) => {
         })
 });
 
+//new API qoshdiq
+app.post("/edit-item", (req, res) => {
+    const data = req.body;
+    console.log(data);
+    db.collection("plans").findOneAndUpdate({ _id: new mongodb.Object(data.id) }, { $set: { reja: data.new_input } }, function(err, data) {
+        res.json({ state: "success" });
+    });
+    res.end("done");
+});
+
+//deletell button
+app.post("/delete-all", (req, res) => {
+    if (req.body.delete_all) {
+        db.collection("plans").deleteMany(function() {
+            res.json({
+                state: "hamma rejalar delete boldi"
+            })
+        })
+    }
+})
+
+
 app.get("/", function(req, res) {
     console.log('user entered /');
     db.collection("plans").find().toArray((err, data) => {
@@ -70,6 +85,8 @@ app.get("/", function(req, res) {
         }
     });
 });
+
+
 
 module.exports = app;
 
