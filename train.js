@@ -26,71 +26,87 @@
 // console.log(countDigits("fbdh8d4hfj9sn2m5md00smn81"));
 
 
-//MIT Problem #C task
+// //MIT Problem #C task
 
-const moment = require('moment');
+// const moment = require('moment');
 
-class Shop {
+// class Shop {
 
-    constructor(non, lagmon, cola) {
-        this.non = non;
-        this.lagmon = lagmon;
-        this.cola = cola;
-    };
-
-
-    hozirgiVaqt() {
-        return moment().format('HH:mm');
-    };
+//     constructor(non, lagmon, cola) {
+//         this.non = non;
+//         this.lagmon = lagmon;
+//         this.cola = cola;
+//     };
 
 
-    qoldiq() {
-        const vaqt = this.hozirgiVaqt();
-        const xabar = `Hozir ${vaqt}da ${this.non}ta non, ${this.lagmon}ta lag'mon va ${this.cola}ta cola mavjud!`;
-
-        console.log(xabar);
-        return xabar;
-    };
+//     hozirgiVaqt() {
+//         return moment().format('HH:mm');
+//     };
 
 
-    sotish(mahsulot, son) {
-        const vaqt = this.hozirgiVaqt();
+//     qoldiq() {
+//         const vaqt = this.hozirgiVaqt();
+//         const xabar = `Hozir ${vaqt}da ${this.non}ta non, ${this.lagmon}ta lag'mon va ${this.cola}ta cola mavjud!`;
 
-        if (this[mahsulot] !== undefined) {
-            if (this[mahsulot] >= son) {
-                this[mahsulot] -= son;
-                console.log(`${vaqt}da ${son}ta ${mahsulot} sotildi`);
-            } else {
-                console.log(`${vaqt}da Yetarli ${mahsulot} yo'q! Faqat ${this[mahsulot]}ta bor`);
-            }
-        } else {
-            console.log(`${vaqt}da Bunday mahsulot mavjud emas!`);
-        }
-    };
+//         console.log(xabar);
+//         return xabar;
+//     };
 
 
-    qabul(mahsulot, son) {
-        const vaqt = this.hozirgiVaqt();
+//     sotish(mahsulot, son) {
+//         const vaqt = this.hozirgiVaqt();
 
-        if (this[mahsulot] !== undefined) {
-            this[mahsulot] += son;
-            console.log(`${vaqt}da ${son}ta ${mahsulot} qabul qilindi`);
-        } else {
-            console.log(`${vaqt}da Bunday mahsulot mavjud emas!`);
-        }
+//         if (this[mahsulot] !== undefined) {
+//             if (this[mahsulot] >= son) {
+//                 this[mahsulot] -= son;
+//                 console.log(`${vaqt}da ${son}ta ${mahsulot} sotildi`);
+//             } else {
+//                 console.log(`${vaqt}da Yetarli ${mahsulot} yo'q! Faqat ${this[mahsulot]}ta bor`);
+//             }
+//         } else {
+//             console.log(`${vaqt}da Bunday mahsulot mavjud emas!`);
+//         }
+//     };
+
+
+//     qabul(mahsulot, son) {
+//         const vaqt = this.hozirgiVaqt();
+
+//         if (this[mahsulot] !== undefined) {
+//             this[mahsulot] += son;
+//             console.log(`${vaqt}da ${son}ta ${mahsulot} qabul qilindi`);
+//         } else {
+//             console.log(`${vaqt}da Bunday mahsulot mavjud emas!`);
+//         }
+//     }
+// };
+
+// const shop = new Shop(4, 5, 2);
+// shop.qoldiq();
+// shop.sotish("non", 3);
+// shop.qabul("cola", 4);
+// shop.qoldiq();
+
+
+//MIT Problem #D task
+function checkContent(a, b) {
+    if (a.length !== b.length) {
+        return false;
     }
-};
 
-const shop = new Shop(4, 5, 2);
-shop.qoldiq();
-shop.sotish("non", 3);
-shop.qabul("cola", 4);
-shop.qoldiq();
+    const sortedA = a.split('').sort().join('');
+    const sortedB = b.split('').sort().join('');
 
+    if (sortedA === sortedB) {
+        return true;
+    } else {
+        return false
+    };
+}
 
-
-
-
+console.log(checkContent("mitgroup", "gmtiprou"));
+console.log(checkContent("mitgraup", "gmtiprou"));
+console.log(checkContent("mtgraup", "gmtiprou"));
 
 
 
