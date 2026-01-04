@@ -58,12 +58,14 @@ document.addEventListener("click", function(e) {
         let userInput = prompt("O'zgartirish kiriting", e.target.parentElement.parentElement.querySelector(".item-text").innerHTML);
         if (userInput) {
             axios.post("/edit-item", {
-                _id: e.target.getAttribute("data-id"),
+                id: e.target.getAttribute("data-id"),
                 new_input: userInput,
-            }).then(response => {
+            }).then((response) => {
                 console.log(response.data);
                 e.target.parentElement.parentElement.querySelector(".item-text").innerHTML = userInput;
-            }).catch(err => { "Iltimos qaytadan harakat qilib" });
+            }).catch(err => {
+                console.log("Iltimos qaytadan harakat qilib");
+            });
         }
 
     }
