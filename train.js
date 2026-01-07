@@ -89,24 +89,33 @@
 
 
 //MIT Problem #D task
-function checkContent(a, b) {
-    if (a.length !== b.length) {
-        return false;
-    }
+// function checkContent(a, b) {
+//     if (a.length !== b.length) {
+//         return false;
+//     }
 
-    const sortedA = a.split('').sort().join('');
-    const sortedB = b.split('').sort().join('');
+//     const sortedA = a.split('').sort().join('');
+//     const sortedB = b.split('').sort().join('');
 
-    if (sortedA === sortedB) {
-        return true;
-    } else {
-        return false
-    };
+//     if (sortedA === sortedB) {
+//         return true;
+//     } else {
+//         return false
+//     };
+// }
+
+// console.log(checkContent("mitgroup", "gmtiprou"));
+// console.log(checkContent("mitgraup", "gmtiprou"));
+// console.log(checkContent("mtgraup", "gmtiprou"));
+
+
+// MIT Problem #E task
+function getReverse(a) {
+    return a.split('').reverse().join('');
 }
-
-console.log(checkContent("mitgroup", "gmtiprou"));
-console.log(checkContent("mitgraup", "gmtiprou"));
-console.log(checkContent("mtgraup", "gmtiprou"));
+console.log(getReverse("hello"));
+console.log(getReverse("world123"));
+console.log(getReverse("bye2025"));
 
 
 
