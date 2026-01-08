@@ -110,14 +110,30 @@
 
 
 // MIT Problem #E task
-function getReverse(a) {
-    return a.split('').reverse().join('');
+// function getReverse(a) {
+//     return a.split('').reverse().join('');
+// }
+// console.log(getReverse("hello"));
+// console.log(getReverse("world123"));
+// console.log(getReverse("bye2025"));
+
+
+// MIT Problem #F task
+
+function findDoublers(a) {
+    const arrayA = a.split('');
+    for (let i = 0; i < arrayA.length; i++) {
+        for (let k = i + 1; k < arrayA.length; k++) {
+            if (arrayA[i] === arrayA[k]) {
+                return true;
+            }
+        }
+    }
+    return false;
 }
-console.log(getReverse("hello"));
-console.log(getReverse("world123"));
-console.log(getReverse("bye2025"));
-
-
+console.log(findDoublers("hello"));
+console.log(findDoublers("helol"));
+console.log(findDoublers("helo"));
 
 
 //EVENT LOOP & CALLBACK
